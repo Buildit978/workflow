@@ -7,6 +7,9 @@
     "type": "git",
     "url": "?.git"
   },
-  "author": "Keith Evanson"
-  
+  "author": "Keith Evanson",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-util": "^3.0.8"
+  }
 }
