@@ -32,7 +32,7 @@ gulp.task('compass',function(){
 	gulp.src(sassSource)
 	.pipe(compass({
 		sass: 'components/sass',
-		images: 'builds/development/imaages',
+		images: 'builds/development/images',
 		style: 'expanded'
 	}))
 	.on('error', gutil.log)
