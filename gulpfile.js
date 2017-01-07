@@ -11,7 +11,7 @@ var gulp = require('gulp'),
 	'components/scripts/pixgrid.js',
 	'components/scripts/tagline.js',
 	'components/scripts/template.js'];
-	var sassSource = ['components/sass/style.sass'];
+	var sassSources = ['components/sass/style.scss'];
 
 gulp.task('coffee', function(){
 	gulp.src(coffeeSource)
@@ -29,7 +29,7 @@ gulp.task('js',function(){
 });
 
 gulp.task('compass',function(){
-	gulp.src(sassSource)
+	gulp.src(sassSources)
 	.pipe(compass({
 		sass: 'components/sass',
 		images: 'builds/development/images',
