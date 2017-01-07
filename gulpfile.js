@@ -5,16 +5,17 @@ var gulp = require('gulp'),
 	compass = require("gulp-compass")
     browserify = require("gulp-browserify");
 	
-	var coffeeSource = ['components/coffee/tagline.coffee'];
-	var jsSource = [
+	var coffeeSources = ['components/coffee/tagline.coffee'];
+	var jsSources = [
 	'components/scripts/rclick.js',
 	'components/scripts/pixgrid.js',
 	'components/scripts/tagline.js',
 	'components/scripts/template.js'];
 	var sassSources = ['components/sass/style.scss'];
+	
 
 gulp.task('coffee', function(){
-	gulp.src(coffeeSource)
+	gulp.src(coffeeSources)
 		.pipe(coffee({bare: true})
 		.on('error', gutil.log))
 		.pipe(gulp.dest('components/scripts'))
@@ -22,7 +23,7 @@ gulp.task('coffee', function(){
 });
 
 gulp.task('js',function(){
-	gulp.src(jsSource)
+	gulp.src(jsSources)
 	.pipe(concat('script.js'))
 	.pipe(browserify())
 	.pipe(gulp.dest('builds/development/js'))
@@ -39,4 +40,16 @@ gulp.task('compass',function(){
 	.pipe(gulp.dest('builds/development/css'))
 });
 
-gulp.task('default', ['coffee', 'js', 'compass']) 
+gulp.task('default', ['coffee', 'js', 'compass']);
+
+gulp.task('watch', function() {
+  gulp.watch(coffeeSources, ['coffee']);
+  gulp.watch(jsSources, ['js']);
+ // gulp.watch('components/sass/*.scss', ['compass']);
+ // gulp.watch(htmlSources, ['html']);
+ // gulp.watch(jsonSources, ['json']);
+});
+
+
+
+
